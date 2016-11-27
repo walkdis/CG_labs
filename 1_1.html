@@ -1,0 +1,87 @@
+<html>
+<body>
+<canvas id='lab1_1' height='1000' width='1000'>
+<script>
+	var canvas = document.getElementById('lab1_1');
+	var ctx = canvas.getContext('2d');
+	var x, y;
+	function Line(x0, y0, x1, y1) {
+		var deltax = Math.abs(x1 - x0);
+		var deltay = Math.abs(y1 - y0);
+		var error = 0;
+		if (deltay <= deltax) {
+			var deltaerr = deltay;
+			var y = y0;
+			if (x1 > x0) {
+				for (var x = x0; x <= x1; ++x) {
+					ctx.fillRect(x, y, 1, 1);
+					error += deltaerr;
+					if (2*error >= deltax) {
+						if (y1 < y0) {
+							y--;
+						} else {
+							y++;
+						}
+						error -= deltax;
+					}
+				}
+			} else {
+				for (var x = x0; x >= x1; --x) {
+					ctx.fillRect(x, y, 1, 1);
+					error += deltaerr;
+					if (2*error >= deltax) {
+						if (y1 < y0) {
+							y--;
+						} else {
+							y++;
+						}
+						error -= deltax;
+					}
+				}
+			}
+		} else {
+			var deltaerr = deltax;
+			var x = x0;
+			if (y1 > y0) {
+				for (var y = y0; y <= y1; ++y) {
+					ctx.fillRect(x, y, 1, 1);
+					error += deltaerr;
+					if (2*error >= deltay) {
+						if (x1 < x0) {
+							x--;
+						} else {
+							x++;
+						}
+						error -= deltay;
+					}
+				}
+			} else {
+				for (var y = y0; y >= y1; --y) {
+					ctx.fillRect(x, y, 1, 1);
+					error += deltaerr;
+					if (2*error >= deltay) {
+						if (x1 < x0) {
+							x--;
+						} else {
+							x++;
+						}
+						error -= deltay;
+					}
+				}
+			}
+		}
+	}
+	
+	canvas.onmousedown = function(event) {
+		x = event.offsetX;
+		y = event.offsetY;
+	}
+	canvas.onmouseup = function(event) {
+		x1 = event.offsetX;
+		y1 = event.offsetY;
+		Line(x, y, x1, y1);
+	}
+</script>
+</canvas>
+</body>
+</html>

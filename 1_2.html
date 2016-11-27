@@ -1,0 +1,207 @@
+<html>
+<body>
+<canvas id='lab1_2' height='1000' width='1000'>
+<script>
+	var canvas = document.getElementById('lab1_2');
+	var ctx = canvas.getContext('2d');
+ 	var xx1,yy1,xx,yy, radius;
+	function circleLol(xPos, yPos, r) {
+		ctx.translate(xPos, yPos);
+		var x = -r;
+		var y = 0;
+		
+		F = 1-r;
+		delta_Fs = 3;
+		delta_Fd = 5-2*r;
+		while( x + y < 0 ) {
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ) {
+            			F += delta_Fd;
+            			x++; y++;
+            			delta_Fs += 2;
+            			delta_Fd += 4;
+      			}
+      			else {
+            			F += delta_Fs;
+            			y++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(1,-1);
+		var x = -r;
+		var y = 0;
+		F = 1-r;
+		delta_Fs = 3;
+		delta_Fd = 5-2*r;
+		while( x + y < 0 ){
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ){
+            			F += delta_Fd;
+            			x++; y++;
+            			delta_Fs += 2;
+            			delta_Fd += 4;
+      			}
+      			else {
+            			F += delta_Fs;
+            			y++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(-1,1);
+		var x = -r;
+		var y = 0;
+		F = 1-r;
+		delta_Fs = 3;
+		delta_Fd = 5-2*r;
+		while( x + y < 0 ){
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ){
+            			F += delta_Fd;
+            			x++; y++;
+            			delta_Fs += 2;
+            			delta_Fd += 4;
+      			}
+      			else {
+            			F += delta_Fs;
+            			y++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(1,-1);
+		var x = -r;
+		var y = 0;
+		F = 1-r;
+		delta_Fs = 3;
+		delta_Fd = 5-2*r;
+		while( x + y < 0 ){
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ){
+            			F += delta_Fd;
+            			x++; y++;
+            			delta_Fs += 2;
+            			delta_Fd += 4;
+      			}
+      			else {
+            			F += delta_Fs;
+            			y++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(-1,1);
+		var x = 0;
+		var y = -r;
+		F = 1-r;
+		delta_Fs = 5-2*r;
+		delta_Fd = 3;
+		while( x + y < 0 ) {
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ) {
+            			F += delta_Fs;//delta_Fd;
+            			x++; y++;
+            			delta_Fs += 4;
+            			delta_Fd += 2;
+      			}
+      			else {
+            			F += delta_Fd;
+            			x++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(-1,1);
+		var x = 0;
+		var y = -r;
+		F = 1-r;
+		delta_Fs = 5-2*r;
+		delta_Fd = 3;
+		while( x + y < 0 ) {
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ) {
+            			F += delta_Fs;//delta_Fd;
+            			x++; y++;
+            			delta_Fs += 4;
+            			delta_Fd += 2;
+      			}
+      			else {
+            			F += delta_Fd;
+            			x++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(1,-1);
+		var x = 0;
+		var y = -r;
+		F = 1-r;
+		delta_Fs = 5-2*r;
+		delta_Fd = 3;
+		while( x + y < 0 ) {
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ) {
+            			F += delta_Fs;//delta_Fd;
+            			x++; y++;
+            			delta_Fs += 4;
+            			delta_Fd += 2;
+      			}
+      			else {
+            			F += delta_Fd;
+            			x++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(-1,1);
+		var x = 0;
+		var y = -r;
+		F = 1-r;
+		delta_Fs = 5-2*r;
+		delta_Fd = 3;
+		while( x + y < 0 ) {
+      			ctx.fillRect(x, y, 1, 1);
+      			if( F > 0 ) {
+            			F += delta_Fs;//delta_Fd;
+            			x++; y++;
+            			delta_Fs += 4;
+            			delta_Fd += 2;
+      			}
+      			else {
+            			F += delta_Fd;
+            			x++;
+            			delta_Fs += 2;
+            			delta_Fd += 2;
+      			}
+		}
+		ctx.scale(1,-1);
+		ctx.translate((-1)*xPos, (-1)*yPos);
+		
+	}
+	canvas.onmousedown = function(event) {
+		xx1 = event.offsetX;
+		yy1 = event.offsetY;
+	}
+	canvas.onmouseup = function(event) {
+		var x2 = event.offsetX;
+		var y2 = event.offsetY;
+		xx = (Math.abs(x2 - xx1))/2;
+		yy = (Math.abs(y2 - yy1))/2;
+		radius = Math.sqrt(Math.pow(xx,2) + Math.pow(yy,2));
+		if (x2 > xx1) {
+			xx += xx1;
+		} else {
+			xx += x2;
+		}
+		if (y2 > yy1) {
+			yy += yy1;
+		} else {
+			yy += y2;
+		}
+		circleLol(xx, yy, radius);
+	}
+</script>
+</canvas>
+</body>
+</html>
